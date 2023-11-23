@@ -1,0 +1,21 @@
+{
+    "restructuredtext.confPath": "${workspaceFolder}\\docs",
+    "python.autoComplete.extraPaths": [
+        "."
+    ],
+    "python.analysis.extraPaths": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.venv": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "*.log": true,
+    },
+}
