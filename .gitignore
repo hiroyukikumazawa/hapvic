@@ -279,3 +279,5 @@ hapvic/media/
 .env
 .envs/*
 !.envs/.local/
+
+*pm2.json
