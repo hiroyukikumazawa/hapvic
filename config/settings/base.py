@@ -85,7 +85,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "hapvic.users",
-    # Your stuff: custom apps go here
+    "hapvic.evm",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
