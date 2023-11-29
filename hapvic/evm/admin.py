@@ -17,8 +17,8 @@ class ContractAdmin(admin.ModelAdmin):
     readonly_fields = ("creation_date",)  # If you want to make creation_date read-only
 
 
-@admin.register(RPCUrl)
-class RPCUrlAdmin(admin.ModelAdmin):
-    list_display = ("chain_id", "url", "active")
-    list_filter = ("chain_id", "active")
-    search_fields = ("chain_id__chain_symbol", "url")
+# @admin.register(RPCUrl)
+# class RPCUrlAdmin(admin.ModelAdmin):
+#     list_display = ("chain_id", "url", "active")
+#     list_filter = ("chain_id", "active")
+#     search_fields = ("chain_id__chain_symbol", "url")
