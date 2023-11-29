@@ -1,0 +1,26 @@
+pipelines:
+  default:
+    - parallel:
+      # - step:
+      #     name: Test
+      #     image: python:3.10
+      #     caches:
+      #       - pip
+      #     script:
+      #       - if [ -f requirements.txt ]; then pip install -r requirements/local.txt; fi
+      #       - pytest -W ignore::pytest.PytestUnraisableExceptionWarning
+
+      - step:
+          name: Deploy
+          image: ubuntu:22.04
+          services:
+            - docker
+          caches:
+            - docker
+          script:
+            - apt-get update && apt-get install -y sshpass
+            - export SSHPASS=$SSH_PASS && sshpass -e ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $OS_USERNAME@$OS_HOST "eval \$(ssh-agent) && ssh-add /$SSH_PATH && cd $PROJECT_PATH && git switch $GIT_BRANCH && git pull $GIT_ORIGIN $GIT_BRANCH && source .venv/bin/activate && ".venv/bin/python" manage.py makemigrations && ".venv/bin/python" manage.py migrate"
+        condition:
+          branches:
+            only:
+              - master
