@@ -34,3 +34,6 @@ class RPCUrl(Common):
     chain_id = models.ForeignKey(Chain, on_delete=models.CASCADE)
     url = models.CharField(max_length=255, unique=True)
     active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.chain_id} {self.url}"
