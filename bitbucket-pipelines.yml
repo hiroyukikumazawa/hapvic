@@ -19,7 +19,7 @@ pipelines:
             - docker
           script:
             - apt-get update && apt-get install -y sshpass
-            - export SSHPASS=$SSH_PASS && sshpass -e ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $OS_USERNAME@$OS_HOST "eval \$(ssh-agent) && ssh-add /$SSH_PATH && cd $PROJECT_PATH && git switch $GIT_BRANCH && git pull $GIT_ORIGIN $GIT_BRANCH && source .venv/bin/activate && ".venv/bin/python" manage.py makemigrations && ".venv/bin/python" manage.py migrate"
+            - export SSHPASS=$SSH_PASS && sshpass -e ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $OS_USERNAME@$OS_HOST "eval \$(ssh-agent) && ssh-add /$SSH_PATH && cd $PROJECT_PATH && git switch $GIT_BRANCH && git pull $GIT_ORIGIN $GIT_BRANCH && source .venv/bin/activate && ".venv/bin/pip" install -r $PIP_DEPENDENCIES && ".venv/bin/python" manage.py makemigrations && ".venv/bin/python" manage.py migrate"
         condition:
           branches:
             only:
