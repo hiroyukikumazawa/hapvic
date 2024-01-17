@@ -11,9 +11,24 @@ SECRET_KEY = env(
     default="buLn8Ldi1ud515tfaXij3R0GtklPvRwdMu8e0LLUZvayfYe8e50epEiGLYJZy2uv",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "evmvars.com"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "0.0.0.0",
+    "127.0.0.1",
+    "admin.evmvars.com",
+    "app.evmvars.com",
+    "www.evmvars.com",
+    "evmvars.com",
+]
 
-# CORS_ORIGIN_WHITELIST = ["http://localhost:8000", "http://135.181.142.163:8000"]
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:8000",
+    "http://135.181.142.163:8000",
+    "http://admin.evmvars.com",
+    "http://app.evmvars.com",
+    "http://www.evmvars.com",
+    "http://evmvars.com",
+]
 
 # CACHES
 # ------------------------------------------------------------------------------

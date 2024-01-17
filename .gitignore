@@ -281,3 +281,4 @@ hapvic/media/
 !.envs/.local/
 
 *pm2.json
+database.json
